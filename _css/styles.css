@@ -1,0 +1,79 @@
+<style>
+	body {
+		background-color: #fff;
+		font-family: sans-serif;
+		width: 100%;
+		margin: auto;
+		border: solid 1px #ccc;
+	}
+	header {
+		background-color: #f7f7f7;
+		height: 88px;
+		line-height: 88px;
+		font-size: 14px;
+	}
+
+	/*-------
+	LEFT SIDE NAVIVAGTION
+	--------*/
+	#sideNav {  position: absolute; top: 15px; }
+	nav { position: relative;border: solid 1px #000; }
+	nav a {
+		color: #808080; 
+		text-align: right;
+		text-decoration: none;
+		display: block;
+	}
+	nav a:hover { color: #000; }
+	.chosen { font-weight: bold; color: #000;}
+	
+
+	.textCenter{ text-align: center; }
+	#presets { padding: 0px; }
+	.editorImg {
+		display: inline-block;
+		width: 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+	}
+	.tempSlider {background-color: #4c4c4c; text-align: center; width: 100%;}
+	.tempSlider img { width: 60%;}
+
+
+
+	.editor_circ_bot {
+		width: 15%;
+		padding: 2% 1%;
+	}
+
+
+
+	/*-------
+	PRESETS PAGE
+	--------*/
+	.imgTemp {
+		display: inline-block;
+		width: 203px;
+		min-height: 203px;
+		border: solid 2px #ccc;
+		background-color: #f7f7f7;
+	}
+
+
+
+
+	
+
+
+
+
+	/*-------
+	FOOTER
+	--------*/
+	#foot {
+		background-color: #3a3a3a;
+		position: relative;
+		text-align: center;
+	}
+
+</style>
