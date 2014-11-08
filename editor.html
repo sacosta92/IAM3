@@ -1,89 +1,62 @@
+<!DOCTYPE html>
 <html>
 	<head>
-		<title>Project Update 2 :: Editor Mockup</title>
-		<style>
-			body {
-				background-color: #fff;
-				font-family: sans-serif;
-				max-width: 640px;
-				height: 1136px;
-				margin: auto;
-				border: solid 1px #ccc;
-			}
-			header {
-				background-color: #f7f7f7;
-				height: 88px;
-				line-height: 88px;
-				font-size: 14px;
-			}
-
-			/*-------
-			LEFT SIDE NAVIVAGTION
-			--------*/
-			#sideNav {  position: absolute; top: 15px; }
-			nav { position: relative;border: solid 1px #000; }
-			nav a {
-				color: #808080; 
-				text-align: right;
-				text-decoration: none;
-				display: block;
-			}
-			nav a:hover { color: #000; }
-			.chosen { font-weight: bold; }
-			.textCenter{ text-align: center; }
-			#presets { padding: 0px; }
-			.imgTemp {
-				display: inline-block;
-				width: 100%;
-				min-height: 880px;
-				background-color: #3a3a3a;
-				background-image: url(Images/edit.png);
-				background-position: center;
-				background-repeat: no-repeat;
-			}
-			.tempSlider {background-color: #4c4c4c; text-align: center;}
-			#foot {
-				background-color: #3a3a3a;
-				height: 168px;
-				position: relative;
-			}
-			.circle {
-				float: left;
-				padding: 28px 9px 0px 9px;
-			}
-		</style>
+		<title>Project Update 3 :: Editor Mockup</title>
+		<link rel="stylesheet" text="text/css" href="_css/styles.css">
+		<link rel="stylesheet" text="text/css" href="_css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="fonts/webfontkit-20141103-121305/stylesheet.css">
 	</head>
 	<body>
-		<div id="container">
-			<div id="sideNav">
-				<nav>
-				<a href="library.html" >Library</a>
-				<a href="presets.html">Presets</a>
-				<a href="editor.html" class="chosen">Editor</a>
-			</div>
-			</nav>
-			<header>
-				<h1 class="textCenter">Editor</h1>
-				
-			</header>
-			
-			<div id="mainBody">
-				<section id="presets">
-					<div class="imgTemp"></div>
-				</section>
-				<section>
-					<div class="tempSlider">
-						<img src="Images/slider.png" height="92" width="453">
+		<div class="navbar navbar-inverse" role="navigation" id="slide-nav">
+			<div class="navContainer">
+				<div class="navbar-header">
+					<a class="navbar-toggle"> 
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="navbar-brand" href="index.html"><img src="_images/logo.png"></a>
+				</div>
+				<div id="slidemenu">
+				   	<ul class="nav navbar-nav">
+				    	<li><a href="index.html">LIBRARY</a></li>
+				    	<li class="active"><a href="editor.html">EDITOR</a></li>
+				    	<li><a href="presets.html">PRESETS</a></li>
+				    </ul>
+				          
+				</div>
+		 	</div>
+  
+ 			<div id="page-content">
+				<div id="container">
+					<header>
+						<h1 class="textCenter">Editor</h1>
+					</header>
+					
+					<div id="mainBody">
+						<section id="presets">
+							<div>
+								<img class="editorImg" src="_images/Library_01.jpg">
+							</div>
+						</section>
 					</div>
-				</section>
+					<section id="foot">
+						<div class="tempSlider">
+							<img src="_images/slider.png">
+						</div>
+						<img class="editor_circ_bot" src="_images/circle.png">
+						<img class="editor_circ_bot" src="_images/circle.png">
+						<img class="editor_circ_bot" src="_images/circle.png">
+						<img class="editor_circ_bot" src="_images/circle.png">
+						<img class="editor_circ_bot" src="_images/circle.png">
+					</section>
+				</div>
 			</div>
-			<section id="foot">
-				<img class="circle" src="Images/circle.png" height="110" width="110">
-				<img class="circle" src="Images/circle.png" height="110" width="110">
-				<img class="circle" src="Images/circle.png" height="110" width="110">
-				<img class="circle" src="Images/circle.png" height="110" width="110">
-				<img class="circle" src="Images/circle.png" height="110" width="110">
-			</section>
 		</div>
+
+		<script type="text/javascript" src="_js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="_js/author.js"></script>
+		<script type="text/javascript" src="_js/bootstrap.min.js"></script>
 	</body>
 </html>
