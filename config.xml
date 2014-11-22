@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<widget xmlns = "http://www.w3.org/ns/widgets"
+		xmlns:gap = "http://phonegap.com/ns/1.0"
+		id        = "com.ajsoftware.lynda.samoca"
+		versionCode="1"
+		version   = "1.0">
+		<name>ACOSTA</name>
+		<description> A photo editor app for Overlays with PhoneGap Build </description>
+		<author href="acostacreations.com" email="acostacreations92@gmail.com">
+Stephanie Acosta
+		</author>
+		<preference name="phonegap-version" value="3.6.3" />
+		<preference name="orientation" value="portrait" />
+		<preference name="target-device" value="universal" />
+
+		<gap:platform name="ios" />
+		<feature name="http://api.phonegap.com/1.0/camera"/>
+		<gap:plugin name="Device" value="org.apache.cordova.core.Device"/>
+		<gap:plugin name="Camera" value="org.apache.cordova.core.CameraLauncher" />
+		<gap:plugin name="org.apache.cordova.camera" version="0.2.3" />
+
+		<access origin="*" subdomains="true" />
+	</widget>
