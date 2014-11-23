@@ -55,4 +55,38 @@ $(document).ready(function(){
 
     });
 	
+
+
+
+
+
+    this.el.on('click', '.change-pic-btn', this.changePicture);
+
+    this.changePicture = function(event) {
+    event.preventDefault();
+    this.el.on('click', '.change-pic-btn', this.changePicture);
+    if (!navigator.camera) {
+        app.showAlert("Camera API not supported", "Error");
+        return;
+    }
+    var options =   {   quality: 50,
+                        destinationType: Camera.DestinationType.DATA_URL,
+                        sourceType: 1,      // 0:Photo Library, 1=Camera, 2=Saved Photo Album
+                        encodingType: 0     // 0=JPG 1=PNG
+                    };
+ 
+    navigator.camera.getPicture(
+        function(imageData) {
+            $('.employee-image', this.el).attr('src', "data:image/jpeg;base64," + imageData);
+        },
+        function() {
+            app.showAlert('Error taking picture', 'Error');
+        },
+        options);
+ 
+        return false;
+    };
+
+
+
 }); /*here ends the doc ready*/

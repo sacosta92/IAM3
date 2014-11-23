@@ -2,12 +2,14 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "com.ajsoftware.lynda.samoca"
-		versionCode="1"
+		versionCode="10"
 		version   = "1.0">
 		<name>ACOSTA</name>
-		<description> A photo editor app for Overlays with PhoneGap Build </description>
+		<description> 
+			A simple overlay photo edit application.
+		</description>
 		<author href="acostacreations.com" email="acostacreations92@gmail.com">
-Stephanie Acosta
+			Stephanie Acosta
 		</author>
 		<preference name="phonegap-version" value="3.6.3" />
 		<preference name="orientation" value="portrait" />
