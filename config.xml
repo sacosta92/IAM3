@@ -17,9 +17,6 @@
         <preference name="Orientation" value="portrait" />
 		<preference name="phonegap-version" value="3.6.3" />
 		<gap:platform name="android" />
-		<feature name="Device">
-       		<param name="android-package" value="org.apache.cordova.device.Device" />
-    	</feature>
 		<gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
 		
 	</widget>
