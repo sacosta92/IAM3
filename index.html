@@ -1,106 +1,98 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    <title>Capture Photo</title>
+	<head>
+		<title>HOME</title>
+		<link rel="stylesheet" text="text/css" href="css/styles.css">
+		<link rel="stylesheet" text="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="fonts/webfontkit-20141103-121305/stylesheet.css">
+		<script src="phonegap.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/author.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-inverse" role="navigation" id="slide-nav">
+			<div class="navContainer">
+				<div class="navbar-header">
+					<a class="navbar-toggle"> 
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</a>
+					<a class="navbar-brand" href="index.html"><img src="img/logo.png"></a>
+				</div>
+				<div id="slidemenu">
+				   	<ul class="nav navbar-nav">
+				    	<li class="active"><a href="index.html">LIBRARY</a></li>
+				    	<li><a href="editor.html">EDITOR</a></li>
+				    	<li><a href="presets.html">PRESETS</a></li>
+				    </ul>
+				          
+				</div>
+		 	</div>
+  
+ 			<div id="page-content">
+				<div id="container">
 
-    <script type="text/javascript" charset="utf-8" src="phonegap-1.0.0.js"></script>
-    <script type="text/javascript" charset="utf-8">
+					<header>
+						<h1 class="textCenter">Library</h1>
+					</header>
+					
+					<div id="mainBody">
+						<section id="library">
+							<img src="img/Library_01.jpg" width="45%">
+							<img src="img/Library_01.jpg" width="45%">
+							<img src="img/Library_01.jpg" width="45%">
+							<img src="img/Library_01.jpg" width="45%">
+							<img src="img/Library_01.jpg" width="45%">
+							<img src="img/Library_01.jpg" width="45%">
+							<img src="img/Library_01.jpg" width="45%">
+							<img src="img/Library_01.jpg" width="45%">
+						</section>
+					</div>
+					<section id="foot">
+						<div id="camera">
+						    <button class="camera-control" onclick="capturePhoto();">
+							    <div style="text-align:center;margin:20px;">
+							        <img id="cameraPic" src="img/camIcon_white.png" style="width:auto;height:60px;"></img>
+							    </div>
+						    </button>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>	
+		<script>
+			function capturePhoto(){
+			    navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:60});
+			}
+			function uploadPhoto(data){
+			// this is where you would send the image file to server
 
-    var pictureSource;   // picture source
-    var destinationType; // sets the format of returned value 
+			    cameraPic.src = "data:image/jpeg;base64," + data;
+			    // Successful upload to the server
+			    navigator.notification.alert(
+			        'Your Photo has been uploaded',  // message
+			        okay,                           // callback
+			        'Photo Uploaded',              // title
+			        'OK'                          // buttonName
+			    );
 
-    // Wait for PhoneGap to connect with the device
-    //
-    document.addEventListener("deviceready",onDeviceReady,false);
+			    // upload has failed Fail
 
-    // PhoneGap is ready to be used!
-    //
-    function onDeviceReady() {
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
-    }
+			     
 
-    // Called when a photo is successfully retrieved
-    //
-    function onPhotoDataSuccess(imageData) {
-      // Uncomment to view the base64 encoded image data
-      // console.log(imageData);
+			    if (failedToUpload){
 
-      // Get image handle
-      //
-      var smallImage = document.getElementById('smallImage');
+			    navigator.notification.alert(
+			        'Your Photo has failed to upload',
+			        failedDismissed,
+			        'Photo Not Uploaded',
+			        'OK'
+			        );
 
-      // Unhide image elements
-      //
-      smallImage.style.display = 'block';
-
-      // Show the captured photo
-      // The inline CSS rules are used to resize the image
-      //
-      smallImage.src = "data:image/jpeg;base64," + imageData;
-    }
-
-    // Called when a photo is successfully retrieved
-    //
-    function onPhotoURISuccess(imageURI) {
-      // Uncomment to view the image file URI 
-      // console.log(imageURI);
-
-      // Get image handle
-      //
-      var largeImage = document.getElementById('largeImage');
-
-      // Unhide image elements
-      //
-      largeImage.style.display = 'block';
-
-      // Show the captured photo
-      // The inline CSS rules are used to resize the image
-      //
-      largeImage.src = imageURI;
-    }
-
-    // A button will call this function
-    //
-    function capturePhoto() {
-      // Take picture using device camera and retrieve image as base64-encoded string
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
-    }
-
-    // A button will call this function
-    //
-    function capturePhotoEdit() {
-      // Take picture using device camera, allow edit, and retrieve image as base64-encoded string  
-      navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 20, allowEdit: true }); 
-    }
-
-    // A button will call this function
-    //
-    function getPhoto(source) {
-      // Retrieve image file location from specified source
-      navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
-        destinationType: destinationType.FILE_URI,
-        sourceType: source });
-    }
-
-    // Called if something bad happens.
-    // 
-    function onFail(message) {
-      alert('Failed because: ' + message);
-    }
-    function cameraCallback(imageData) {
-      var image = document.getElementById('myImage');
-      image.src = "data:image/jpeg;base64," + imageData;
-    }
-
-    </script>
-  </head>
-  <body>
-    <button onclick="capturePhoto();">Capture Photo</button> <br>
-    <button onclick="capturePhotoEdit();">Capture Editable Photo</button> <br>
-    <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
-    <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
-    <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
-    <img style="display:none;" id="largeImage" src="" />
-  </body>
+			    } 
+			}
+		</script>
+	</body>
 </html>
