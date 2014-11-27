@@ -4,9 +4,9 @@
 		id        = "acostacreations.com"
 		versionCode="10"
 		version   = "1.0">
-		<name>ACOSTA</name>
+		<name>camTESTER</name>
 		<description> 
-			A simple overlay photo edit application.
+			A TEST APP for Camera editor.
 		</description>
 		<author href="acostacreations.com" email="acostacreations92@gmail.com">
 			Stephanie Acosta

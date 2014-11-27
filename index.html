@@ -8,91 +8,98 @@
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="js/author.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<div class="navbar navbar-inverse" role="navigation" id="slide-nav">
-			<div class="navContainer">
-				<div class="navbar-header">
-					<a class="navbar-toggle"> 
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
-					<a class="navbar-brand" href="index.html"><img src="img/logo.png"></a>
-				</div>
-				<div id="slidemenu">
-				   	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="index.html">LIBRARY</a></li>
-				    	<li><a href="editor.html">EDITOR</a></li>
-				    	<li><a href="presets.html">PRESETS</a></li>
-				    </ul>
-				          
-				</div>
-		 	</div>
-  
- 			<div id="page-content">
-				<div id="container">
+		<script type="text/javascript" charset="utf-8">
 
-					<header>
-						<h1 class="textCenter">Library</h1>
-					</header>
-					
-					<div id="mainBody">
-						<section id="library">
-							<img src="img/Library_01.jpg" width="45%">
-							<img src="img/Library_01.jpg" width="45%">
-							<img src="img/Library_01.jpg" width="45%">
-							<img src="img/Library_01.jpg" width="45%">
-							<img src="img/Library_01.jpg" width="45%">
-							<img src="img/Library_01.jpg" width="45%">
-							<img src="img/Library_01.jpg" width="45%">
-							<img src="img/Library_01.jpg" width="45%">
-						</section>
-					</div>
-					<section id="foot">
-						<div id="camera">
-						    <button class="camera-control" onclick="capturePhoto();">
-							    <div style="text-align:center;margin:20px;">
-							        <img id="cameraPic" src="img/camIcon_white.png" style="width:auto;height:120px;"></img>
-							    </div>
-						    </button>
-						</div>
-					</section>
-				</div>
-			</div>
-		</div>	
-		<script>
-			function capturePhoto(){
-			    navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:60});
-			}
-			function uploadPhoto(data){
-			// this is where you would send the image file to server
-
-			    cameraPic.src = "data:image/jpeg;base64," + data;
-			    // Successful upload to the server
-			    navigator.notification.alert(
-			        'Your Photo has been uploaded',  // message
-			        okay,                           // callback
-			        'Photo Uploaded',              // title
-			        'OK'                          // buttonName
-			    );
-
-			    // upload has failed Fail
-
-			     
-
-			    if (failedToUpload){
-
-			    navigator.notification.alert(
-			        'Your Photo has failed to upload',
-			        failedDismissed,
-			        'Photo Not Uploaded',
-			        'OK'
-			        );
-
-			    } 
-			}
-		</script>
-	</body>
+	 	 var pictureSource;   // picture source
+	 	 var destinationType; // sets the format of returned value	
+	 	 // Wait for PhoneGap to connect with the device
+	 	 //
+	 	 document.addEventListener("deviceready",onDeviceReady,false)	
+	 	 // PhoneGap is ready to be used!
+	 	 //
+	 	 function onDeviceReady() {
+	 	     pictureSource=navigator.camera.PictureSourceType;
+	 	     destinationType=navigator.camera.DestinationType;
+	 	 	
+	 	 // Called when a photo is successfully retrieved
+	 	 //
+	 	 function onPhotoDataSuccess(imageData) {
+	 		// Get image handle
+	 		//
+	 		var smallImage = document.getElementById('smallImage')	
+	 		// Unhide image elements
+	 		//
+	 		smallImage.style.display = 'block'	
+	 		// Show the captured photo
+	 		// The inline CSS rules are used to resize the image
+	 		//
+	 		smallImage.src = "data:image/jpeg;base64," + imageData;
+	 	 }
+	 	 
+		// Called when a photo is successfully retrieved
+	 	//
+	 	function onPhotoFileSuccess(imageData) {
+	 	   // Get image handle
+	 	   console.log(JSON.stringify(imageData));
+	 	   
+	 		  // Get image handle
+	 	   //
+	 	   var smallImage = document.getElementById('smallImage')	
+	 	   // Unhide image elements
+	 	   //
+	 	   smallImage.style.display = 'block'	
+	 	   // Show the captured photo
+	 	   // The inline CSS rules are used to resize the image
+	 	   //
+	 	   smallImage.src = imageData;
+	 	 	
+	 	 // Called when a photo is successfully retrieved
+	 	 //
+	 	 function onPhotoURISuccess(imageURI) {
+	 	   // Uncomment to view the image file URI 
+	 	   // console.log(imageURI)	
+	 	   // Get image handle
+	 	   //
+	 	   var largeImage = document.getElementById('largeImage')	
+	 	   // Unhide image elements
+	 	   //
+	 	   largeImage.style.display = 'block'	
+	 	   // Show the captured photo
+		    // The inline CSS rules are used to resize the image
+		    //
+		    largeImage.src = imageURI;
+		  	
+		  // A button will call this function
+		  //
+		  function capturePhotoWithData() {
+		    // Take picture using device camera and retrieve image as base64-encoded string
+		    navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50 });
+		  	
+		  function capturePhotoWithFile() {
+		      navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 50, destinationType: Camera.DestinationTyp	FILE_URI });
+		  }
+		  
+		  // A button will call this function
+		  //
+		  function getPhoto(source) {
+		    // Retrieve image file location from specified source
+		    navigator.camera.getPicture(onPhotoURISuccess, onFail, { quality: 50, 
+		      destinationType: destinationType.FILE_URI,
+		      sourceType: source });
+		  	
+		  // Called if something bad happens.
+		  // 
+		  function onFail(message) {
+		    alert('Failed because: ' + message);
+		  	
+		  </script>
+		</head>
+		<body>
+		  <button onclick="capturePhotoWithData();">Capture Photo With Image Data</button> <br>
+		  <button onclick="capturePhotoWithFile();">Capture Photo With Image File URI</button> <br>
+		  <button onclick="getPhoto(pictureSource.PHOTOLIBRARY);">From Photo Library</button><br>
+		  <button onclick="getPhoto(pictureSource.SAVEDPHOTOALBUM);">From Photo Album</button><br>
+		  <img style="display:none;width:60px;height:60px;" id="smallImage" src="" />
+		  <img style="display:none;" id="largeImage" src="" />
+		</body>
 </html>
