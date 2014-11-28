@@ -26,7 +26,14 @@
 			#container a:active {color: #A71E22;}
 			#image { 
 				display: none;
-				height: 90%;
+				width: 100%;
+			}
+			#TopNav {
+				background-color: #0A0002;
+				height: 75px;
+				line-height: 75px;
+				font-size: 24px;
+				text-align: center;
 			}
 			#BottomNav {
 				background-color: #0A0002;
@@ -53,8 +60,8 @@
 	</head>
 	<body onLoad="DOMLoaded()">
 		<div id="container">
-			<div>
-				
+			<div id="TopNav">
+				<p>OVERLAY EDITOR</p>
 			</div>
 			<nav id="BottomNav">
 				<a id="AddIcon" href="#" onclick="takePicture()"><h1>+</h1></a>
