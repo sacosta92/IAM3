@@ -6,8 +6,34 @@
 		<link rel="stylesheet" type="text/css" href="fonts/webfontkit-20141103-121305/stylesheet.css">
 		<script src="phonegap.js"></script>
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-		<script type="text/javascript" src="js/author.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/author.js"></script>
+		<script>
+			function capturePhoto(){
+			    navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:60});
+			}
+			function uploadPhoto(data){
+			// send the image file to server
+			    cameraPic.src = "data:image/jpeg;base64," + data;
+			    // Successful upload to the server
+			    navigator.notification.alert(
+			        'Your Photo has been uploaded',  // message
+			        okay,                           // callback
+			        'Photo Uploaded',              // title
+			        'OK'                          // buttonName
+			    );
+			    // upload has failed Fail
+			    if (failedToUpload){
+
+			    navigator.notification.alert(
+			        'Your Photo has failed to upload',
+			        failedDismissed,
+			        'Photo Not Uploaded',
+			        'OK'
+			        );
+			    } 
+			}
+		</script>
 	</head>
 	<body>
 		<div class="navbar navbar-inverse" role="navigation" id="slide-nav">
@@ -27,19 +53,14 @@
 				    	<li><a href="editor.html">EDITOR</a></li>
 				    	<li><a href="presets.html">PRESETS</a></li>
 				    </ul>
-				          
 				</div>
 		 	</div>
-  
  			<div id="page-content">
 				<div id="container">
-
 					<header>
 						<h1 class="textCenter">Library</h1>
 					</header>
-					
 					<div id="mainBody">
-						<button onclick="getImage();">Get Image</button>
 						<section id="library">
 							<img src="img/Library_01.jpg" width="45%">
 							<img src="img/Library_01.jpg" width="45%">
@@ -58,54 +79,10 @@
 							        <img id="cameraPic" src="img/camIcon_white.png" style="width:auto;height:60px;"></img>
 							    </div>
 						    </button>
-
 						</div>
 					</section>
 				</div>
 			</div>
 		</div>	
-		<script>
-			function capturePhoto(){
-			    navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:60});
-			}
-			function uploadPhoto(data){
-			// this is where you would send the image file to server
-
-			    cameraPic.src = "data:image/jpeg;base64," + data;
-			    // Successful upload to the server
-			    navigator.notification.alert(
-			        'Your Photo has been uploaded',  // message
-			        okay,                           // callback
-			        'Photo Uploaded',              // title
-			        'OK'                          // buttonName
-			    );
-
-			    // upload has failed Fail
-
-			     
-
-			    if (failedToUpload){
-
-			    navigator.notification.alert(
-			        'Your Photo has failed to upload',
-			        failedDismissed,
-			        'Photo Not Uploaded',
-			        'OK'
-			        );
-
-			    } 
-			}
-			function getImage() {
-	            navigator.camera.getPicture(onSuccess, onFailure, {
-			    destinationType: navigator.camera.DestinationType.FILE_URI,
-			    sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
-           });
-	        function onSuccess(imageURI) {
-	            alert("Image location is:"+ imageURI);
-         	}
-         	function onFailure(message) {
-                alert("Get image failed: " + message);
-         	}
-		</script>
 	</body>
 </html>
