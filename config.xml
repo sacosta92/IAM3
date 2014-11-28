@@ -31,5 +31,4 @@
 		<gap:splash src="res/screens/android/screen-mdpi-portrait.png" gap:platform="android" gap:density="mdpi" />
 		<gap:splash src="res/screens/android/screen-hdpi-portrait.png" gap:platform="android" gap:density="hdpi" />
 		<gap:splash src="res/screens/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
-		<gap:splash src="res/icon/android/144xxhdpi.png" gap:platform="android" gap:density="xxhdpi" />
 	</widget>
