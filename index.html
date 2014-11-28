@@ -1,11 +1,24 @@
 <html>
 	<head>
-		<title>my camera</title>
+		<title>my camera : EDITOR</title>
 		<script src="phonegap.js"></script>
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="js/author.js"></script>
 		<style type="text/css">
+			body {
+				background-color: #191919;
+				margin: 0px;
+				padding: 0px;
+			}
+			#container {
+				color: #e6e6e6;
+				text-align: center;
+				padding: 25px 15px;
+				width: 100%;
+				margin: auto;
+			}
 			#image { display: none;
+				width: 90%;
 			    -ms-transform: rotate(90deg); /* IE 9 */
 			    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
 			    transform: rotate(90deg);
@@ -13,7 +26,10 @@
 		</style>
 	</head>
 	<body onLoad="DOMLoaded()">
+		<div id="container">
+			
+		</div>
 		<a href="#" onclick="takePicture()"><h1>Take a Photo</h1></a>
-		<img id="image" height="70%" src=""/>
+		<img id="image" src=""/>
 	</body>
 </html>
