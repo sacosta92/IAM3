@@ -64,24 +64,23 @@ function uploadPhoto(data){
 }
 }); /*here ends the doc ready*/
 
+    function DOMLoaded() {
+        document.addEventListener("deviceready", phonegapLoaded, false);
+    }
+    function phonegapLoaded() {
 
-function DOMLoaded() {
-    document.addEventListener("deviceready", phonegapLoaded, false);
-}
-function phonegapLoaded() {
-
-}
-function takePicture() {
-    navigator.camera.getPicture(onSuccess,onFail,{sourceType:1,quality:70});
-}
-function onSuccess(imageData) {
-    var image = document.getElementById('image');
-    image.src = "data:image/jpg;base64, " + imageData;
-    image.style.display = 'block';
-}
-function onFail(message) {
-    alert('Failed because, ' + message);
-}
+    }
+    function takePicture() {
+        navigator.camera.getPicture(onSuccess,onFail,{ quality:70 });
+    }
+    function onSuccess(imageData) {
+        var image = document.getElementById('image');
+        image.src = "data:image/jpg;base64, " + imageData;
+        image.style.display = 'block';
+    }
+    function onFail(message) {
+        alert('Failed because: ' + message);
+    }
 
 
 
