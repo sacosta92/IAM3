@@ -1,86 +1,17 @@
-/*$(document).ready(function(){
-	//stick in the fixed 100% height behind the navbar but don't wrap it
-    $('#slide-nav.navbar .container').append($('<div id="navbar-height-col"></div>'));
-    var toggler = '.navbar-toggle';
-    var pagewrapper = '#page-content';
-    var navigationwrapper = '.navbar-header';
-    var menuwidth = '100%'; // the menu inside the slide menu itself
-    var slidewidth = '80%';
-    var menuneg = '-100%';
-    var slideneg = '-80%';
-    $("#slide-nav").on("click", toggler, function (e) {
-
-        var selected = $(this).hasClass('slide-active');
-
-        $('#slidemenu').stop().animate({
-            left: selected ? menuneg : '0px'
-        });
-
-        $('#navbar-height-col').stop().animate({
-            left: selected ? slideneg : '0px'
-        });
-
-        $(pagewrapper).stop().animate({
-            left: selected ? '0px' : slidewidth
-        });
-        $(navigationwrapper).stop().animate({
-            left: selected ? '0px' : slidewidth
-        });
-        $(this).toggleClass('slide-active', !selected);
-        $('#slidemenu').toggleClass('slide-active');
-        $('#page-content, .navbar, body, .navbar-header').toggleClass('slide-active');
-    });
-    var selected = '#slidemenu, #page-content, body, .navbar, .navbar-header';
-    $(window).on("resize", function () {
-        if ($(window).width() > 767 && $('.navbar-toggle').is(':hidden')) {
-            $(selected).removeClass('slide-active');
-        }
-    });
-    // camera 
-function capturePhoto(){
-    navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:70});
+function DOMLoaded() {
+    document.addEventListener("deviceready", phonegapLoaded, false);
 }
-function uploadPhoto(data){
-// this is where you would send the image file to server
-    var cameraPic = document.getElementById('cameraPic');
-    cameraPic.src = "data:image/jpg;base64, " + imageData;
-    cameraPic.style.display = 'block';
-    // Successful upload to the server
-    navigator.notification.alert(
-        'Your Photo has been uploaded',  // message
-        okay,                           // callback
-        'Photo Uploaded',              // title
-        'OK'                          // buttonName
-    );
-    // upload has failed Fail
-    if (failedToUpload){
-    navigator.notification.alert(
-        'Your Photo has failed to upload',
-        failedDismissed,
-        'Photo Not Uploaded',
-        'OK'
-        );
-    } 
+function phonegapLoaded() {
+
 }
-}); /*here ends the doc ready*/
-
-    function DOMLoaded() {
-        document.addEventListener("deviceready", phonegapLoaded, false);
-    }
-    function phonegapLoaded() {
-
-    }
-    function takePicture() {
-        navigator.camera.getPicture(onSuccess,onFail,{ quality:70 });
-    }
-    function onSuccess(imageData) {
-        var image = document.getElementById('image');
-        image.src = "data:image/jpg;base64, " + imageData;
-        image.style.display = 'block';
-    }
-    function onFail(message) {
-        alert('Failed because: ' + message);
-    }
-
-
-
+function takePicture() {
+    navigator.camera.getPicture(onSuccess,onFail,{ quality: 70, destinationType: Camera.DestinationType.FILE_URI });
+}
+function onSuccess(imageURI) {
+    var image = document.getElementById('image');
+    image.src = imageURI;
+    image.style.display = 'block';
+}
+function onFail(message) {
+    alert('Failed because: ' + message);
+}
