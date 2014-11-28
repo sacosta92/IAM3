@@ -37,24 +37,14 @@ $(document).ready(function(){
         }
     });
     // camera 
-// function capturePhoto(){
-//     navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:60});
-// }
-function capturePhoto() {
-    // Take picture using device camera and retrieve image as base64-encoded string
-
-    navigator.camera.getPicture(uploadPhoto, onPhotoDataSuccess, onFail,{
-        quality : 25, 
-        destinationType : Camera.DestinationType.FILE_URI, 
-        sourceType : Camera.PictureSourceType.CAMERA, 
-        allowEdit : true,
-        encodingType: Camera.EncodingType.JPEG,
-        popoverOptions: CameraPopoverOptions,
-        saveToPhotoAlbum: true });         
+function capturePhoto(){
+    navigator.camera.getPicture(uploadPhoto,null,{sourceType:1,quality:70});
 }
 function uploadPhoto(data){
 // this is where you would send the image file to server
-    cameraPic.src = "data:image/jpeg;base64," + data;
+    var cameraPic = document.getElementById('cameraPic');
+    cameraPic.src = "data:image/jpg;base64, " + imageData;
+    cameraPic.style.display = 'block';
     // Successful upload to the server
     navigator.notification.alert(
         'Your Photo has been uploaded',  // message
