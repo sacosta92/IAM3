@@ -39,6 +39,7 @@
 					</header>
 					
 					<div id="mainBody">
+						<button onclick="getImage();">Get Image</button>
 						<section id="library">
 							<img src="img/Library_01.jpg" width="45%">
 							<img src="img/Library_01.jpg" width="45%">
@@ -57,6 +58,7 @@
 							        <img id="cameraPic" src="img/camIcon_white.png" style="width:auto;height:60px;"></img>
 							    </div>
 						    </button>
+
 						</div>
 					</section>
 				</div>
@@ -93,6 +95,17 @@
 
 			    } 
 			}
+			function getImage() {
+	            navigator.camera.getPicture(onSuccess, onFailure, {
+			    destinationType: navigator.camera.DestinationType.FILE_URI,
+			    sourceType: navigator.camera.PictureSourceType.PHOTOLIBRARY
+           });
+	        function onSuccess(imageURI) {
+	            alert("Image location is:"+ imageURI);
+         	}
+         	function onFailure(message) {
+                alert("Get image failed: " + message);
+         	}
 		</script>
 	</body>
 </html>
