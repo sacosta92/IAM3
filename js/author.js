@@ -1,4 +1,4 @@
-$(document).ready(function(){
+/*$(document).ready(function(){
 	//stick in the fixed 100% height behind the navbar but don't wrap it
     $('#slide-nav.navbar .container').append($('<div id="navbar-height-col"></div>'));
     var toggler = '.navbar-toggle';
@@ -63,3 +63,25 @@ function uploadPhoto(data){
     } 
 }
 }); /*here ends the doc ready*/
+
+
+function DOMLoaded () {
+    document.addEventListener("deviceready", phonegapLoaded, false);
+}
+function phonegapLoaded() {
+
+}
+function takePicture() {
+    navigator.camera.getPicture(onSuccess,onFail,( quality:70));
+}
+function onSuccess(imageData) {
+    var image = document.getElementById('image');
+    image.src = "data:image/jpg;base64, " + imageData;
+    image.style.display = 'block';
+}
+function onFail(message) {
+    alert('Failed because, ' + message);
+}
+
+
+
