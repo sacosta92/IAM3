@@ -12,7 +12,9 @@
 				margin: 0px;
 				padding: 0px;
 				display: inline-block;
+				width: 100%;
 				max-width: 1024px;
+				font-family: sans-serif, helvetica, arial;
 			}
 			#container {
 				color: #e6e6e6;
@@ -23,13 +25,31 @@
 			#container a:active {color: #A71E22;}
 			#image { 
 				display: none;
+				width: 100%;
+			}
+			#TopNav {
+				background-color: #0A0002;
+				position: fixed;
+				bottom: 0px;
+				width: 100%;
+				overflow: auto;
+			}
+			#AddIcon {
+				float: left;
+				width: 50%;
+			}
+			#CamIcon {
+				float: right;
+				width: 50%;
 			}
 		</style>
 	</head>
 	<body onLoad="DOMLoaded()">
 		<div id="container">
-			<a href="#" onclick="takePicture()"><h1>Add photo from Library</h1></a>
-			<a href="#" onclick="takeCamera()"><h1>Take a Photo from Camera</h1></a>
+			<nav id="TopNav">
+				<a id="AddIcon" href="#" onclick="takePicture()"><h1>Add photo from Library</h1></a>
+				<a id="CamIcon" href="#" onclick="takeCamera()"><h1>Take a Photo from Camera</h1></a>
+			</nav>
 			<img id="image" src=""/>
 		</div>
 	</body>
