@@ -65,14 +65,14 @@ function uploadPhoto(data){
 }); /*here ends the doc ready*/
 
 
-function DOMLoaded () {
+function DOMLoaded() {
     document.addEventListener("deviceready", phonegapLoaded, false);
 }
 function phonegapLoaded() {
 
 }
 function takePicture() {
-    navigator.camera.getPicture(onSuccess,onFail,( quality:70));
+    navigator.camera.getPicture(onSuccess,onFail,{sourceType:1,quality:70});
 }
 function onSuccess(imageData) {
     var image = document.getElementById('image');
