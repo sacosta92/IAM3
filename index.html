@@ -3,6 +3,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>my camera : EDITOR</title>
+		<link rel="stylesheet" href="fonts/webfontkit-20141128-173500/stylesheet.css">
 		<script src="phonegap.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile.min.js"></script>
 		<script type="text/javascript" src="js/author.js"></script>
@@ -27,28 +28,35 @@
 				display: none;
 				width: 100%;
 			}
-			#TopNav {
+			#BottomNav {
 				background-color: #0A0002;
+				font-size: 50px;
 				position: fixed;
 				bottom: 0px;
 				width: 100%;
 				overflow: auto;
+				font-family: 'modern_pictogramsnormal';
 			}
 			#AddIcon {
 				float: left;
 				width: 50%;
+				margin-top: -30px;
 			}
 			#CamIcon {
 				float: right;
 				width: 50%;
+				margin-top: -30px;
 			}
 		</style>
 	</head>
 	<body onLoad="DOMLoaded()">
 		<div id="container">
-			<nav id="TopNav">
-				<a id="AddIcon" href="#" onclick="takePicture()"><h1>Add photo from Library</h1></a>
-				<a id="CamIcon" href="#" onclick="takeCamera()"><h1>Take a Photo from Camera</h1></a>
+			<div>
+				
+			</div>
+			<nav id="BottomNav">
+				<a id="AddIcon" href="#" onclick="takePicture()"><h1>+</h1></a>
+				<a id="CamIcon" href="#" onclick="takeCamera()"><h1>A</h1></a>
 			</nav>
 			<img id="image" src=""/>
 		</div>
