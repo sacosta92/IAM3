@@ -5,7 +5,7 @@ function phonegapLoaded() {
 
 }
 function takePicture() {
-    navigator.camera.getPicture(onSuccess,onFail,{ quality: 70, destinationType: Camera.DestinationType.FILE_URI, sourceTyep: Camera.PictureSourceType.PHOTOLIBRARY, targetWidth: 400, targetHeight: 400 });
+    navigator.camera.getPicture(onSuccess,onFail,{ quality: 70, destinationType: Camera.DestinationType.FILE_URI, sourceType: Camera.PictureSourceType.PHOTOLIBRARY});
 }
 function onSuccess(imageURI) {
     var image = document.getElementById('image');
