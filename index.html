@@ -5,7 +5,11 @@
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 		<script type="text/javascript" src="js/author.js"></script>
 		<style type="text/css">
-			#image { display: none; }
+			#image { display: none;
+			    -ms-transform: rotate(90deg); /* IE 9 */
+			    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+			    transform: rotate(90deg);
+			}
 		</style>
 	</head>
 	<body onLoad="DOMLoaded()">
