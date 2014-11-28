@@ -1,12 +1,14 @@
 <html>
 	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<title>my camera : EDITOR</title>
 		<script src="phonegap.js"></script>
-		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile.min.js"></script>
 		<script type="text/javascript" src="js/author.js"></script>
 		<style type="text/css">
 			body {
-				background-color: #333333;
+				/*background-color: #333333;*/
 				/*margin: 0px;
 				padding: 0px;*/
 				display: inline-block;
@@ -18,8 +20,10 @@
 				margin: auto;
 			}
 			#container a {color: #00df5d;}
-			#image { display: none;
-				width: 400px;
+			#image { 
+				display: none;
+				/*width: 400px;
+				min-height: 200px;*/
 			    /* -ms-transform: rotate(90deg); IE 9 */
 			    /* -webkit-transform: rotate(90deg); Chrome, Safari, Opera */
 			    /* transform: rotate(90deg); */
@@ -30,6 +34,7 @@
 		<div id="container">
 			<a href="#" onclick="takePicture()"><h1>Take a Photo</h1></a>
 			<img id="image" src=""/>
+			<button onclick="galleryAddPic()"></button>
 		</div>
 	</body>
 </html>
