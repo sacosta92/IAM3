@@ -12,14 +12,20 @@
 			Stephanie Acosta
 		</author>
 		<content src="index.html" />
-        <access origin="*" />
-        <preference name="android-installLocation" value="auto" />
-        <preference name="Fullscreen" value="true" />
-        <preference name="Orientation" value="portrait" />
-		<preference name="phonegap-version" value="3.6.3" />
+
+		<gap:platform name="ios" />
 		<gap:platform name="android" />
+		
+		<preference name="phonegap-version" value="3.6.3" />
+        <preference name="android-installLocation" value="auto" />
+        <preference name="fullscreen" value="true" />
+        <preference name="exit-on-suspend" value="false" />
+        <preference name="orientation" value="portrait" />
+		
+		
 		<feature name="http://api.phonegap.com/1.0/camera"/>
 		<gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
+		
 		<platform name="android">
             <icon src="res/icon/android/36ldpi.png" gap:density="ldpi" />
             <icon src="res/icon/android/48mdpi.png" gap:density="mdpi" />
@@ -31,4 +37,5 @@
 		<gap:splash src="res/screens/android/screen-mdpi-portrait.png" gap:platform="android" gap:density="mdpi" />
 		<gap:splash src="res/screens/android/screen-hdpi-portrait.png" gap:platform="android" gap:density="hdpi" />
 		<gap:splash src="res/screens/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
+		<access origin="*" />
 	</widget>

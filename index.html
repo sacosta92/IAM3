@@ -2,61 +2,12 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-		<title>my camera : EDITOR</title>
+		<title>First App :: Photo Editor</title>
 		<link rel="stylesheet" href="fonts/webfontkit-20141128-173500/stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="author.css">
 		<script src="phonegap.js"></script>
 		<script type="text/javascript" src="js/jquery.mobile.min.js"></script>
 		<script type="text/javascript" src="js/author.js"></script>
-		<style type="text/css">
-			body {
-				background-color: #333333;
-				margin: 0px;
-				padding: 0px;
-				display: inline-block;
-				width: 100%;
-				max-width: 1024px;
-				font-family: sans-serif, helvetica, arial;
-			}
-			#container {
-				color: #e6e6e6;
-				text-align: center;
-				margin: auto;
-			}
-			#container a {color: #eee;}
-			#container a:active {color: #A71E22;}
-			#image { 
-				display: none;
-				width: 100%;
-			}
-			#TopNav {
-				background-color: #0A0002;
-				height: 75px;
-				line-height: 75px;
-				font-size: 24px;
-				text-align: center;
-			}
-			#BottomNav {
-				background-color: #0A0002;
-				font-size: 30px;
-				line-height: 5px;
-				text-decoration: none;
-				position: fixed;
-				bottom: 0px;
-				width: 100%;
-				overflow: auto;
-				font-family: 'modern_pictogramsnormal';
-			}
-			#AddIcon {
-				float: left;
-				text-decoration: none;
-				width: 50%;
-			}
-			#CamIcon {
-				float: right;
-				text-decoration: none;
-				width: 50%;
-			}
-		</style>
 	</head>
 	<body onLoad="DOMLoaded()">
 		<div id="container">
@@ -67,7 +18,7 @@
 				<a id="AddIcon" href="#" onclick="takePicture()"><h1>+</h1></a>
 				<a id="CamIcon" href="#" onclick="takeCamera()"><h1>A</h1></a>
 			</nav>
-			<img id="image" src=""/>
+			<img id="image" src="res/screens/android/screen-hdpi-portrait.png"/>
 		</div>
 	</body>
 </html>
