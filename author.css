@@ -15,7 +15,7 @@ body {
 #container a {color: #eee;}
 #container a:active {color: #A71E22;}
 #image { 
-	/*display: none;*/
+	display: none;
 	margin-top: 1%;
 	width: 100%;
 }
