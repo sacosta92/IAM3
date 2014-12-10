@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest>
+	<meta-data android:name="search-engine" android:resource="@xml/AndroidManifest"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA"></uses-permission>
+</manifest>

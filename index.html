@@ -1,60 +1,24 @@
 <html>
 	<head>
-		<title>Project Update 2 :: HOME</title>
-		<link rel="stylesheet" text="text/css" href="_css/styles.css">
-		<link rel="stylesheet" text="text/css" href="_css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="fonts/webfontkit-20141103-121305/stylesheet.css">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title>First App :: Photo Editor</title>
+		<link rel="stylesheet" href="fonts/webfontkit-20141128-173500/stylesheet.css">
+		<link rel="stylesheet" type="text/css" href="author.css">
+		<script src="phonegap.js"></script>
+		<script type="text/javascript" src="js/jquery.mobile.min.js"></script>
+		<script type="text/javascript" src="js/author.js"></script>
 	</head>
-	<body>
-		<div class="navbar navbar-inverse" role="navigation" id="slide-nav">
-			<div class="navContainer">
-				<div class="navbar-header">
-					<a class="navbar-toggle"> 
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
-					<a class="navbar-brand" href="index.html"><img src="_images/logo.png"></a>
-				</div>
-				<div id="slidemenu">
-				   	<ul class="nav navbar-nav">
-				    	<li class="active"><a href="index.html">LIBRARY</a></li>
-				    	<li><a href="editor.html">EDITOR</a></li>
-				    	<li><a href="presets.html">PRESETS</a></li>
-				    </ul>
-				          
-				</div>
-		 	</div>
-  
- 			<div id="page-content">
-				<div id="container">
-
-					<header>
-						<h1 class="textCenter">Library</h1>
-					</header>
-					
-					<div id="mainBody">
-						<section id="library">
-							<img src="_images/Library_01.jpg" width="45%">
-							<img src="_images/Library_01.jpg" width="45%">
-							<img src="_images/Library_01.jpg" width="45%">
-							<img src="_images/Library_01.jpg" width="45%">
-							<img src="_images/Library_01.jpg" width="45%">
-							<img src="_images/Library_01.jpg" width="45%">
-							<img src="_images/Library_01.jpg" width="45%">
-							<img src="_images/Library_01.jpg" width="45%">
-						</section>
-					</div>
-					<section id="foot">
-						<img id="camIcon" src="_images/camIcon.png">
-					</section>
-				</div>
+	<body onLoad="DOMLoaded()">
+		<div id="container">
+			<div id="TopNav">
+				<p>OVERLAY EDITOR</p>
 			</div>
+			<nav id="BottomNav">
+				<a id="AddIcon" href="#" onclick="takePicture()"><h1>+</h1></a>
+				<a id="CamIcon" href="#" onclick="takeCamera()"><h1>A</h1></a>
+			</nav>
+			<img id="image" src=""/>
 		</div>
-		<script type="text/javascript" src="_js/jquery-1.11.1.min.js"></script>
-		<script type="text/javascript" src="_js/author.js"></script>
-		<script type="text/javascript" src="_js/bootstrap.min.js"></script>
-		
 	</body>
 </html>

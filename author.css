@@ -1,0 +1,49 @@
+body {
+	background-color: #333333;
+	margin: 0px;
+	padding: 0px;
+	display: inline-block;
+	width: 100%;
+	position: relative;
+	font-family: sans-serif, helvetica, arial;
+}
+#container {
+	color: #e6e6e6;
+	text-align: center;
+	margin: auto;
+}
+#container a {color: #eee;}
+#container a:active {color: #A71E22;}
+#image { 
+	display: none;
+	margin-top: 1%;
+	width: 100%;
+}
+#TopNav {
+	background-color: #0A0002;
+	height: 75px;
+	line-height: 75px;
+	font-size: 24px;
+	text-align: center;
+}
+#BottomNav {
+	background-color: #0A0002;
+	font-size: 30px;
+	line-height: 5px;
+	text-decoration: none;
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+	overflow: auto;
+	font-family: 'modern_pictogramsnormal';
+}
+#AddIcon {
+	float: left;
+	text-decoration: none;
+	width: 50%;
+}
+#CamIcon {
+	float: right;
+	text-decoration: none;
+	width: 50%;
+}

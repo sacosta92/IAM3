@@ -2,7 +2,6 @@
 *:active {
     border: none;
 }
-
 body {
 	background-color: #fff;
 	font-family: sans-serif;
@@ -41,7 +40,7 @@ body .navbar-header {
 	background-repeat: no-repeat;
 }
 .tempSlider {background-color: #4c4c4c; text-align: center; width: 100%;}
-.tempSlider img { width: 60%;}
+.tempSlider img { height: 60px;}
 
 
 
@@ -50,7 +49,7 @@ body .navbar-header {
 	padding: 2% 1%;
 }
 
-
+#cameraPic {display: none;}
 
 /*-------
 PRESETS PAGE
