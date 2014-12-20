@@ -58,6 +58,6 @@
     padding: 5%;
 }
 
-#thumbs .thumb img{border:none; margin-top: 70px; width:70px; opacity:0.5;filter:alpha(opacity=50);}
+#thumbs .thumb img{border:none; margin-top: 40px; width:70px; opacity:0.5;filter:alpha(opacity=50);}
 #thumbs .thumb-on img{border:none; opacity:1;filter:alpha(opacity=100);}
 #slider div {-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
