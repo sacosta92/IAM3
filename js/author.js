@@ -17,6 +17,7 @@ function onSuccess(imageURI) {
     var image = document.getElementById('image');
     image.src = imageURI;
     image.style.display = 'block';
+    thumbs.style.display = 'block';
 }
 function onFail(message) {
     alert('Failed because: ' + message);
